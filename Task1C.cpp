@@ -1,6 +1,7 @@
 #include <iostream>
+#include <cstdio>    // getchar() is in this library
 #include <string>
-#define print cout<<
+#define print cout<< // tf is this gimmick
 using namespace std;
 
 class shapes
@@ -9,8 +10,8 @@ protected:
 	double length, width;
 
 public:
-	shapes() : length(0), width(0) {}
-	~shapes() {}
+	shapes() : length(0), width(0) {};
+	~shapes() {};
 	
 	virtual void setter();
 	virtual double area() = 0;
@@ -22,8 +23,10 @@ public:
 
 class two_d_shapes : public shapes
 {
+protected:
+
 public:
-	two_d_shapes() {}
+	two_d_shapes(): shapes() {} // Parent constructor call
 	~two_d_shapes() {}
 
 	virtual double area() = 0;
@@ -41,6 +44,7 @@ public:
 	~circle() {}
 
 	void		setter();
+	// Length and width for circle? Are you high?
 	double		getLength();
 	double		getWidth();
 	double		getRadius();
@@ -127,7 +131,7 @@ double		circle::getLength()		{ return length; }
 double		circle::getWidth()		{ return width; }
 double		circle::getRadius()		{ return radius; }
 string		circle::getColor()		{ return color; }
-double		circle::area()			{ return (3.14 * (radius * radius)); }
+double		circle::area()			{ return (3.14 * (radius * radius)); } // define PI 3.14
 void		circle::setter()
 {
 	print"\nEnter radius\n>>\t";
@@ -158,7 +162,7 @@ void		square::setter()
 double		Cube::getLength()		{ return length; }
 double		Cube::getWidth()		{ return width; }
 double		Cube::getHeight()		{ return height; }
-double		Cube::area()			{ return (2 * ((length * width) + (width * height) + (length * height))); }
+double		Cube::area()			{ return (2 * ((length * width) + (width * height) + (length * height))); } // This is actually cuboid and not cube
 double		Cube::volume()			{ return length * width * height; }
 void		Cube::setter()
 {
